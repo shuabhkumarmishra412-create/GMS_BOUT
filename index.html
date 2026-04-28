@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMS NETWORK | Official Hub</title>
+    <style>
+        /* CORE UI CONFIGURATION */
+        :root {
+            --bg-black: #050505;
+            --bg-card: #0d0d0d;
+            --accent: #ff003c; /* GMS Crimson */
+            --accent-glow: rgba(255, 0, 60, 0.4);
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-black); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+        /* DASHBOARD - TOP NAVIGATION */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            padding: 20px 5%;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .db-item {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .db-item span {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+
+        /* HERO AREA */
+        .hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .aura-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            filter: blur(150px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #fff 40%, #444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* TEAM SECTION */
+        .team-container {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .team-category {
+            margin-bottom: 80px;
+        }
+
+        .category-label {
+            display: inline-block;
+            background: var(--accent);
+            padding: 5px 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .profile-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        .profile-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(255, 0, 60, 0.15);
+        }
+
+        .pfp {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+            filter: grayscale(30%);
+        }
+
+        .p-name {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* ABOUT SECTION */
+        .about-gms {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            padding: 50px;
+            border-radius: 24px;
+            margin-top: 50px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 100px 5%;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 25px var(--accent-glow);
+        }
+
+        footer { padding: 40px; text-align: center; color: #333; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="dashboard">
+        <div class="db-item"><span>Entry #01</span><p>GMS GIVEAWAYS</p></div>
+        <div class="db-item"><span>Entry #02</span><p>FREE SERVICES</p></div>
+        <div class="db-item"><span>Entry #03</span><p>GMS NETWORK</p></div>
+        <div class="db-item"><span>Entry #04</span><p>LIVE STATUS</p></div>
+    </nav>
+
+    <section class="hero">
+        <div class="aura-glow"></div>
+        <h1>GMS <span>NETWORK</span></h1>
+        <p style="color: var(--accent); letter-spacing: 5px; font-weight: 300; margin-top: 10px;">ESTABLISHED JAN 2026</p>
+    </section>
+
+    <div class="team-container">
+        
+        <div class="team-category">
+            <span class="category-label">FOUNDERS & OWNERS</span>
+            <div class="team-grid">
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=400" alt="Madara" class="pfp">
+                    <div class="p-name">🇲 🇦 🇩 🇦 🇷 🇦  🇩 🇪 🇫 🇦 🇺 🇱 🇹 🇪 🇷</div>
+                </div>
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400" alt="Sasuke" class="pfp">
+                    <div class="p-name">𝐒 𝚲 𝐒 𝐔 𝐊 𝐄 • ❰ 𝐃𝐄𝐅𝚲𝐔𝐋𝐓𝐄𝐑𝐒 ❱</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-category">
+            <span class="category-label">CO-OWNERS</span>
+            <div class="team-grid">
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400" alt="Ashish" class="pfp">
+                    <div class="p-name">卂丂卄|丂卄 ᗪ乇千卂ㄩㄥㄒ乇尺</div>
+                </div>
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400" alt="Utkarsh" class="pfp">
+                    <div class="p-name">𝚄𝚃𝙺𝙰𝚁𝚂𝙷 𝙳𝙴𝙵𝙰𝚄𝙻𝚃𝙴𝚁</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-category">
+            <span class="category-label">ADMINISTRATORS</span>
+            <div class="team-grid">
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?q=80&w=400" alt="VC Madara" class="pfp">
+                    <div class="p-name">🅥🅒 🅜🅐🅓🅐🅡🅐</div>
+                </div>
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400" alt="Psycho" class="pfp">
+                    <div class="p-name">ᑭՏYᑕᕼO ᗪᗴᖴᗩᑌᒪTᗴᖇ</div>
+                </div>
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?q=80&w=400" alt="Light" class="pfp">
+                    <div class="p-name">.𝁘ໍ- 𓆰𝑳𝑰𝑮𝑯𝑻𓆪• ⌯❰ 𝐃𝐄𝐅𝐀𝐔𝐋𝐓𝐄𝐑𝐒 ❱⌯ 💸</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-gms">
+            <h2 style="color: var(--accent); margin-bottom: 20px;">THE GMS MANIFESTO</h2>
+            <p style="color: var(--text-gray);">
+                Founded in January 2026, GMS Network stands as a premier digital collective within the Telegram ecosystem. 
+                Specialized in executing high-tier giveaways, we provide our community with elite assets including Free Fire Accounts, 
+                premium IDs, and OTT memberships. Every operation is built on transparency and technical excellence.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="btn-container">
+        <a href="#" class="btn">JOIN THE NETWORK</a>
+    </div>
+
+    <footer>
+        GMS NETWORK &bull; ALL RIGHTS RESERVED &bull; SECURE CONNECTION ACTIVE
+    </footer>
+
+</body>
+</html>
