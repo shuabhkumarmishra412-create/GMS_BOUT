@@ -3,398 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GMS NETWORK | Official Hub</title>
+    <meta name="description" content="GMS Network - Trusted Telegram Network | Giveaways, Premium Bots, Virtual Numbers, USDT Trading & More">
+    <title>GMS Network • Telegram's Most Trusted Community</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    
     <style>
-        /* CORE UI CONFIGURATION */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        
         :root {
-            --bg-black: #030303;
-            --bg-card: #0a0a0a;
-            --accent: #ff003c; /* GMS Crimson */
-            --accent-glow: rgba(255, 0, 60, 0.4);
-            --text-white: #ffffff;
-            --text-gray: #b0b0b0;
-            --glass: rgba(255, 255, 255, 0.03);
-            --pfp-size: 130px;
+            --primary: #00f0ff;
+            --secondary: #c026ff;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-        }
-
+        
         body {
-            background-color: var(--bg-black);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.025em;
         }
 
-        /* CUSTOM SCROLLBAR */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-black); }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
-
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-
-        /* DASHBOARD - TOP NAVIGATION & BOT STATUS */
-        .dashboard {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            padding: 20px 5%;
-            background: rgba(3, 3, 3, 0.85);
-            backdrop-filter: blur(15px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .db-item {
-            background: var(--glass);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .db-item span {
-            display: block;
-            font-size: 0.65rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 4px;
-        }
-
-        .status-on { color: #00ff88; font-weight: bold; }
-
-        /* HERO AREA */
-        .hero {
-            height: 40vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        .starry-bg {
+            background: radial-gradient(circle at 50% 50%, #0a0a1f 0%, #000000 100%);
             position: relative;
+            overflow: hidden;
         }
-
-        .aura-glow {
+        
+        .star {
             position: absolute;
-            width: 450px;
-            height: 450px;
-            background: var(--accent);
-            filter: blur(150px);
-            opacity: 0.12;
-            z-index: -1;
-            animation: auraPulse 6s infinite alternate;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate ease-in-out;
+            box-shadow: 0 0 8px #fff, 0 0 16px #00f0ff;
         }
-
-        @keyframes auraPulse {
-            from { transform: scale(1); opacity: 0.12; }
-            to { transform: scale(1.1); opacity: 0.18; }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.4; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
         }
-
-        .hero h1 {
-            font-size: clamp(3rem, 10vw, 6.5rem);
-            font-weight: 900;
-            letter-spacing: -3px;
-            margin-bottom: 10px;
-            background: linear-gradient(to bottom, #fff 30%, #444 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        
+        .glass {
+            background: rgba(10, 10, 31, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 240, 255, 0.1);
         }
-
-        .hero h1 span { color: var(--accent); -webkit-text-fill-color: var(--accent); }
-
-        /* ACTIVE BUTTONS (CRIMSON AURA) */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 40px;
-            border-radius: 10px;
-            font-weight: 800;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: var(--accent);
-            color: white;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 0 15px var(--accent-glow);
-            transition: 0.4s ease;
+        
+        .neon-text {
+            text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
         }
-
-        .btn:hover {
-            transform: scale(1.03) translateY(-2px);
-            box-shadow: 0 0 30px var(--accent-glow);
-        }
-
-        /* TEAM / EXECUTIVE COMMAND SECTION */
-        .team-container {
-            padding: 60px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .team-category { margin-bottom: 70px; }
-
-        .category-label {
+        
+        .section-header {
+            position: relative;
             display: inline-block;
-            background: var(--glass);
-            color: var(--accent);
-            padding: 6px 18px;
-            font-weight: bold;
-            font-size: 0.7rem;
-            border-radius: 4px;
-            margin-bottom: 30px;
-            border: 1px solid var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .profile-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.03);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: 0.4s ease;
-            position: relative;
-        }
-
-        .profile-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-8px);
-            box-shadow: 0 10px 40px rgba(255, 0, 60, 0.15);
-        }
-
-        .pfp-wrap {
-            position: relative;
-            width: var(--pfp-size);
-            height: var(--pfp-size);
-            margin: 0 auto 20px;
-        }
-
-        .pfp {
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            border: 4px solid var(--accent);
-            object-fit: cover;
-            filter: contrast(110%) saturate(120%);
-        }
-
-        .pfp-aura {
+        
+        .section-header::after {
+            content: '';
             position: absolute;
-            width: 100%; height: 100%;
-            top: 0; left: 0;
-            background: var(--accent);
-            border-radius: 50%;
-            filter: blur(15px);
-            opacity: 0.4;
-            z-index: -1;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #00f0ff, #c026ff);
+            border-radius: 9999px;
         }
-
-        .p-name {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            font-weight: bold;
-            min-height: 40px; /* Aligns names across cards */
-            display: flex; align-items: center; justify-content: center;
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        /* MANIFESTO */
-        .manifesto-wrap {
-            padding: 80px 5%;
-            background: radial-gradient(circle at center, #0a0002, var(--bg-black));
+        
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgb(0 240 255 / 0.2);
+            border-color: #00f0ff;
         }
-
-        .about-gms {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 50px;
-            border-radius: 24px;
+        
+        .nav-link {
             position: relative;
         }
-
-        .about-gms h2 { color: var(--accent); margin-bottom: 25px; font-size: 2.2rem; text-align: center; }
-        .about-gms p { color: var(--text-gray); margin-bottom: 20px; font-size: 1.1rem; text-align: center; }
-        .highlight-text { color: var(--text-white); font-weight: 600; }
-
-        /* FINAL CALL SECTION */
-        .final-join { text-align: center; padding: 100px 5%; }
-
-        footer {
-            padding: 40px; text-align: center; color: #333; font-size: 0.8rem;
-            letter-spacing: 1px; text-transform: uppercase;
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(to right, #00f0ff, #c026ff);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .moderator-card {
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .moderator-card:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 30px 70px -15px rgb(192 38 255 / 0.4);
+        }
+        
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .galaxy {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,240,255,0.08) 0%, transparent 70%);
+        }
+        
+        .loading-text {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: 4px;
+            animation: pulse 2s infinite;
+        }
+        
+        .glowing-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .glowing-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.6),
+                transparent
+            );
+            transition: 0.6s;
+        }
+        
+        .glowing-btn:hover::before {
+            left: 250%;
+        }
+        
+        .stat-number {
+            font-variant-numeric: tabular-nums;
         }
     </style>
 </head>
-<body>
-
-    <nav class="dashboard">
-        <div class="db-item"><span>Status #01</span><p>GMS GIVEAWAYS<br><span class="status-on">ACTIVE [112%]</span></p></div>
-        <div class="db-item"><span>Status #02</span><p>FREE SERVICES<br><span class="status-on">SECURE [🟢]</span></p></div>
-        <div class="db-item"><span>Status #03</span><p>GMS NETWORK<br><span class="status-on">DEPLOYED</span></p></div>
+<body class="bg-black text-white overflow-x-hidden">
+    
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="galaxy"></div>
+        <canvas id="preloader-stars" class="absolute inset-0 w-full h-full"></canvas>
         
-        <div class="db-item" style="grid-column: span 1 / -1; text-align: left; padding: 15px;">
-            <span style="font-size: 0.6rem; color: #999;">Status #04 &bull; LIVE BOT STATUS</span>
-            <p style="font-size: 0.7rem; color: var(--text-gray); display: grid; gap: 5px;">
-                <a href="https://t.me/RADHA_MUSIC_GMS_op_bot" target="_blank">• [🟢音乐] ˹ 𝐑ᴀᴅʜᴀ ꭙ 𝐌ᴜꜱɪᴄ ♪˼</a>
-                <a href="https://t.me/MADARA_GMS_STRING_bot" target="_blank">• [🟢验证] MADARA X STRING</a>
-                <a href="https://t.me/MADARA_SPAM_6_bot" target="_blank">• [🟢SPAM6] MADARA X SPAM</a>
-                <a href="https://t.me/IMAGE_TO_BACKREMOVE_bot" target="_blank">• [🟢图像] 𝐈ᴍᴀɢᴇ ꭙ 𝐓ᴏᴏʟ ♪˼</a>
-                <a href="https://t.me/ANIME_MOVIE_PROVIDER_GMS_bot" target="_blank">• [🟢电影] ANIME , MOVIE PROVIDER</a>
-            </p>
+        <div class="relative z-10 flex flex-col items-center">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-20 h-20 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 rounded-3xl flex items-center justify-center shadow-2xl shadow-purple-500/50">
+                    <span class="text-5xl font-black text-white tracking-tighter">GMS</span>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h1 class="text-4xl font-bold heading-font tracking-tighter mb-2">GMS NETWORK</h1>
+                <p class="text-cyan-400 text-sm tracking-[4px] font-medium">EST. JANUARY 2026</p>
+            </div>
+            
+            <div class="mt-12 flex flex-col items-center">
+                <div class="w-64 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-gradient-to-r from-cyan-400 to-purple-500 w-0 transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <p class="text-xs text-white/60 mt-4 tracking-widest">INITIALIZING TELEGRAM ECOSYSTEM...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 glass border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/40">
+                    <span class="text-2xl font-black tracking-tighter">GMS</span>
+                </div>
+                <div>
+                    <span class="font-bold text-2xl tracking-tighter">GMS</span>
+                    <span class="text-xs text-white/60 block -mt-1">NETWORK</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-9 text-sm font-medium">
+                <a href="#home" class="nav-link hover:text-cyan-400">Home</a>
+                <a href="#services" class="nav-link hover:text-cyan-400">Services</a>
+                <a href="#moderators" class="nav-link hover:text-cyan-400">Moderators</a>
+                <a href="#community" class="nav-link hover:text-cyan-400">Community</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="glowing-btn hidden md:flex items-center gap-3 px-7 py-3.5 bg-white text-black font-semibold rounded-3xl text-sm hover:bg-white/90">
+                    <i class="fa-brands fa-telegram text-xl"></i>
+                    <span>JOIN TELEGRAM</span>
+                </a>
+                <button onclick="toggleMobileMenu()" class="md:hidden w-11 h-11 flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="aura-glow"></div>
-        <h1>GMS <span>NETWORK</span></h1>
-        <p style="color: var(--accent); letter-spacing: 4px; font-weight: 300; font-size: 0.75rem; margin-top: 10px;">
-            DEEP CRIMSON AURA PROTOCOL &bull; EST. JAN 2026
-        </p>
-    </section>
-
-    <div class="team-container">
+    <!-- HERO -->
+    <section id="home" class="starry-bg min-h-screen flex items-center relative pt-16">
+        <canvas id="stars-canvas" class="absolute inset-0 w-full h-full"></canvas>
         
-        <div class="team-category">
-            <span class="category-label">FOUNDERS & OWNERS [GMS ROOT]</span>
-            <div class="team-grid">
-                <div class="profile-card">
-                    <div class="pfp-wrap">
-                        <div class="pfp-aura"></div>
-                        <img src="https://images.unsplash.com/photo-1549479543-98448f76378e?q=80&w=400" alt="Madara Profile" class="pfp">
+        <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
+            <div class="max-w-5xl">
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-3xl bg-white/5 border border-white/10 mb-8">
+                    <div class="flex -space-x-1">
+                        <div class="w-5 h-5 bg-emerald-400 rounded-full ring-2 ring-black"></div>
                     </div>
-                    <div class="p-name">🇲 🇦 🇩 🇦 🇷 🇦  🇩 🇪 🇫 🇦 🇺 🇱 🇹 🇪 🇷</div>
-                    <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="btn">WORKING PREVIEW</a>
+                    <span class="text-emerald-400 text-sm font-medium">TRUSTED BY 200+ USERS</span>
                 </div>
-                <div class="profile-card">
-                    <div class="pfp-wrap">
-                        <div class="pfp-aura"></div>
-                        <img src="https://images.unsplash.com/photo-1541534401786-2077eff8c9b4?q=80&w=400" alt="Sasuke Profile" class="pfp">
-                    </div>
-                    <div class="p-name">𝐒 𝚲 𝐒 𝐔 𝐊 𝐄 • ❰ 𝐃𝐄𝐅𝚲𝐔𝐋𝐓𝐄𝐑𝐒 ❱</div>
-                    <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="btn">WORKING PREVIEW</a>
+                
+                <h1 class="text-7xl md:text-8xl lg:text-[92px] font-black heading-font leading-[0.92] tracking-tighter mb-6">
+                    THE MOST<br>
+                    <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">TRUSTED</span><br>
+                    TELEGRAM NETWORK
+                </h1>
+                
+                <p class="max-w-lg text-2xl text-white/70 mb-10">
+                    Since January 2026, empowering Telegram community with premium tools, fair giveaways, and unbreakable trust.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })" class="glowing-btn px-10 py-5 bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-bold text-lg rounded-3xl flex items-center gap-3 hover:scale-105 active:scale-95">
+                        <span>EXPLORE SERVICES</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
-            </div>
-        </div>
-
-        <div class="team-category">
-            <span class="category-label">CO-OWNERS [GMS CORE]</span>
-            <div class="team-grid">
-                <div class="profile-card">
-                    <div class="pfp-wrap">
-                        <div class="pfp-aura"></div>
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400" alt="Ashish Profile" class="pfp">
+                
+                <div class="mt-16 flex items-center gap-10 text-sm">
+                    <div>
+                        <div class="text-4xl font-bold text-cyan-400">200+</div>
+                        <div class="text-white/50">Active Members</div>
                     </div>
-                    <div class="p-name">卂丂卄|丂卄 ᗪ乇千卂ㄩㄥㄒ乇尺</div>
-                    <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="btn">WORKING PREVIEW</a>
-                </div>
-                <div class="profile-card">
-                    <div class="pfp-wrap">
-                        <div class="pfp-aura"></div>
-                        <img src="https://images.unsplash.com/photo-1531384441138-27db14bd343b?q=80&w=400" alt="Utkarsh Profile" class="pfp">
+                    <div>
+                        <div class="text-4xl font-bold text-purple-400">9</div>
+                        <div class="text-white/50">Giveaways</div>
                     </div>
-                    <div class="p-name">𝚄𝚃𝙺𝙰𝚁𝚂𝙷 𝙳𝙴𝙵𝙰𝚄𝙻𝚃𝙴𝚁</div>
-                    <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="btn">WORKING PREVIEW</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="team-category">
-            <span class="category-label">ADMINISTRATORS [GMS ELITE]</span>
-            <div class="team-grid">
-                <div class="profile-card">
-                    <div class="pfp-wrap">
-                        <div class="pfp-aura"></div>
-                        <img src="https://images.unsplash.com/photo-1520333781090-e2ad16ba8e1a?q=80&w=400" alt="Admin VC Madara" class="pfp">
+                    <div>
+                        <div class="text-4xl font-bold text-pink-400">4.98</div>
+                        <div class="text-white/50">Average Rating</div>
                     </div>
-                    <div class="p-name">🅥🅒 🅜🅐🅓🅐🅡🅐</div>
-                    <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="btn">WORKING PREVIEW</a>
-                </div>
-                <div class="profile-card">
-                    <div class="pfp-wrap">
-                        <div class="pfp-aura"></div>
-                        <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?q=80&w=400" alt="Admin Psycho" class="pfp">
-                    </div>
-                    <div class="p-name">ᑭՏYᑕᕼO ᗪᗴᖴᗩᑌᒪTᗴᖇ</div>
-                    <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="btn">WORKING PREVIEW</a>
-                </div>
-                <div class="profile-card">
-                    <div class="pfp-wrap">
-                        <div class="pfp-aura"></div>
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400" alt="Admin Light" class="pfp">
-                    </div>
-                    <div class="p-name">.𝁘ໍ- 𓆰𝑳𝑰𝑮𝑯𝑻𓆪• ⌯❰ 𝐃𝐄𝐅𝚲𝐔𝐋𝐓𝐄𝐑𝐒 ❱⌯ 💸</div>
-                    <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="btn">WORKING PREVIEW</a>
                 </div>
             </div>
         </div>
-
-    </div>
-
-    <section class="manifesto-wrap">
-        <div class="about-gms">
-            <h2>THE GMS MANIFESTO</h2>
-            <p>
-                Founded in January 2026, GMS Network stands as the premier digital collective within the Telegram ecosystem. 
-                Our infrastructure is engineered for <span class="highlight-text">high-tier giveaways</span>, providing 
-                unparalleled access to elite digital assets including <span class="highlight-text">Free Fire Accounts, verified Telegram IDs</span>, 
-                and exclusive <span class="highlight-text">OTT Premium subscriptions</span>.
-            </p>
-            <p>
-                Every operation within our network—from automated giveaways to secure bot management—is driven by 
-                transparency, integrity, and the definitive pursuit of community excellence.
-            </p>
+        
+        <div class="hidden xl:block absolute right-12 bottom-12 w-[420px] h-[420px]">
+            <canvas id="three-canvas" class="w-full h-full"></canvas>
         </div>
     </section>
 
-    <section class="final-join">
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">ENTER THE MOVEMENT</h2>
-        <p style="color: var(--text-gray); margin-bottom: 40px; font-size: 1rem;">Join the definitive network and claim your digital future.</p>
-        <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="btn" style="padding: 18px 60px;">JOIN GMS NETWORK</a>
+    <!-- SERVICES -->
+    <section id="services" class="max-w-screen-2xl mx-auto px-8 py-24">
+        <div class="text-center mb-16">
+            <span class="uppercase tracking-[3px] text-sm text-cyan-400">WHAT WE OFFER</span>
+            <h2 class="text-6xl font-bold heading-font tracking-tighter mt-3">Premium Services</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="service-card glass border border-white/10 rounded-3xl p-8 group">
+                <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-gift text-3xl text-black"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-4">Epic Giveaways</h3>
+                <p class="text-white/70">Daily & weekly giveaways. 100% fair.</p>
+                <div class="mt-8 text-sm text-yellow-400">9 GIVEAWAYS DONE</div>
+            </div>
+            
+            <div class="service-card glass border border-white/10 rounded-3xl p-8 group">
+                <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-robot text-3xl text-black"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-4">Custom Telegram Bots</h3>
+                <p class="text-white/70">Professional bots for automation.</p>
+                <div class="mt-8 text-sm text-cyan-400">9 BOTS DEPLOYED</div>
+            </div>
+            
+            <div class="service-card glass border border-white/10 rounded-3xl p-8 group">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-mobile-alt text-3xl text-black"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-4">Telegram Virtual Numbers</h3>
+                <p class="text-white/70">High-quality virtual numbers.</p>
+                <div class="mt-8 text-sm text-purple-400">1000+ ACCOUNTS SOLD</div>
+            </div>
+            
+            <div class="service-card glass border border-white/10 rounded-3xl p-8 group">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-coins text-3xl text-black"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-4">USDT Trading</h3>
+                <p class="text-white/70">Secure & fast USDT trading.</p>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        GMS NETWORK &bull; DEEP CRIMSON PROTOCOL &bull; CONNECTION SECURE
-    </footer>
+    <!-- MODERATORS -->
+    <section id="moderators" class="max-w-screen-2xl mx-auto px-8 py-24 bg-white/5 border-y border-white/10">
+        <div class="text-center mb-16">
+            <span class="uppercase tracking-[3px] text-sm text-purple-400">THE TEAM</span>
+            <h2 class="text-6xl font-bold heading-font tracking-tighter mt-3">GMS Moderators</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <!-- Founder -->
+            <div class="moderator-card glass border border-white/10 rounded-3xl overflow-hidden group">
+                <div class="h-80 relative overflow-hidden">
+                    <img src="https://i.ibb.co/rGd5cBfd/image.jpg" alt="Founder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
+                    <div class="absolute top-4 right-4 px-4 py-1 bg-black/70 rounded-3xl text-xs font-medium">FOUNDER</div>
+                </div>
+                <div class="p-7">
+                    <div class="text-3xl font-bold">𝐅 𝐔 𝐂 𝚱 𝚵 Ʀ</div>
+                    <div class="text-purple-400">Founder</div>
+                    <a href="https://t.me/YOUR_fucker_dad" class="text-cyan-400 text-sm mt-4 block">t.me/YOUR_fucker_dad</a>
+                </div>
+            </div>
+            
+            <!-- Owner 1 -->
+            <div class="moderator-card glass border border-white/10 rounded-3xl overflow-hidden group">
+                <div class="h-80 relative overflow-hidden">
+                    <img src="https://i.ibb.co/vCXX76hN/image.jpg" alt="Owner" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
+                    <div class="absolute top-4 right-4 px-4 py-1 bg-black/70 rounded-3xl text-xs font-medium">OWNER</div>
+                </div>
+                <div class="p-7">
+                    <div class="text-3xl font-bold">𝐒 𝚲 𝐒 𝐔 𝐊 𝐄</div>
+                    <div class="text-purple-400">Owner</div>
+                    <a href="tg://openmessage?user_id=8498330921" class="text-cyan-400 text-sm mt-4 block">Ashish</a>
+                </div>
+            </div>
+            
+            <!-- Owner 2 -->
+            <div class="moderator-card glass border border-white/10 rounded-3xl overflow-hidden group">
+                <div class="h-80 relative overflow-hidden">
+                    <img src="https://i.ibb.co/wNHfWfJJ/image.jpg" alt="Owner" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
+                    <div class="absolute top-4 right-4 px-4 py-1 bg-black/70 rounded-3xl text-xs font-medium">OWNER</div>
+                </div>
+                <div class="p-7">
+                    <div class="text-3xl font-bold">Ashish</div>
+                    <div class="text-purple-400">Owner</div>
+                    <a href="https://t.me/ll_YOUR_ASHISH_BRO_ll" class="text-cyan-400 text-sm mt-4 block">t.me/ll_YOUR_ASHISH_BRO_ll</a>
+                </div>
+            </div>
+            
+            <!-- Manager + Admin -->
+            <div class="moderator-card glass border border-white/10 rounded-3xl p-7 flex flex-col">
+                <div class="mb-6">
+                    <div class="text-3xl font-bold">Manager & Admin</div>
+                </div>
+                <div class="space-y-6 flex-1">
+                    <div>
+                        <div class="font-semibold">『 Ꮐᴏᴅ 』 Mᴀᴅᴀʀᴀ</div>
+                        <div class="text-xs text-white/50">Manager</div>
+                        <a href="https://t.me/Itacp" class="text-cyan-400 text-sm">t.me/Itacp</a>
+                    </div>
+                    <div>
+                        <div class="font-semibold">𝕷𝖎𝖌𝖍𝖙</div>
+                        <div class="text-xs text-white/50">Administrator</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="max-w-screen-2xl mx-auto px-8 py-24">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-6xl font-bold heading-font tracking-tighter">Join Our Community</h2>
+                <div class="mt-8 space-y-4">
+                    <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="block px-8 py-6 bg-white text-black font-bold rounded-3xl flex items-center gap-4 hover:bg-white/90">
+                        <i class="fa-brands fa-telegram text-4xl"></i>
+                        <div>Main Channel</div>
+                    </a>
+                    <a href="https://t.me/+n7E6Q19lY0cxNDBl" target="_blank" class="block px-8 py-6 bg-white/10 border border-white/30 font-bold rounded-3xl flex items-center gap-4">Support Chat</a>
+                    <a href="https://t.me/+dv_rcq5uIXhmMWM1" target="_blank" class="block px-8 py-6 bg-white/10 border border-white/30 font-bold rounded-3xl flex items-center gap-4">Our Community</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
-        // Smooth entry animation for profiles
-        window.addEventListener('DOMContentLoaded', () => {
-            console.log("GMS Elite Interface Initialized...");
-            const cards = document.querySelectorAll('.profile-card, .about-gms');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if(entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(25px)';
-                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
-                observer.observe(card);
-            });
-        });
+        // Simplified JS (core functionality only)
+        function initializeWebsite() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => { preloader.style.opacity = '0'; setTimeout(() => preloader.style.display = 'none', 600); }, 1800);
+        }
+        window.onload = initializeWebsite;
+        
+        function toggleMobileMenu() {
+            alert("Main: https://t.me/+1NRRqUd1replNTM1\nSupport: https://t.me/+n7E6Q19lY0cxNDBl");
+        }
     </script>
 </body>
 </html>
