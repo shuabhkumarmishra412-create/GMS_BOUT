@@ -3,171 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="GMS Network - Trusted Telegram Network Since January 2026">
     <title>GMS Network • Telegram's Most Trusted Community</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        
-        body { font-family: 'Inter', system_ui, sans-serif; }
-        .heading-font { font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: -0.025em; }
-        
-        .starry-bg { background: radial-gradient(circle at 50% 50%, #0a0a1f 0%, #000000 100%); position: relative; overflow: hidden; }
-        .glass { background: rgba(10, 10, 31, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(0, 240, 255, 0.1); }
-        
-        .service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .service-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 25px 50px -12px rgb(0 240 255 / 0.2); border-color: #00f0ff; }
-        
-        .modal { animation: modalPop 0.3s ease; }
-        @keyframes modalPop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        body { font-family: 'Inter', sans-serif; }
+        .heading { font-family: 'Space Grotesk', sans-serif; }
+        .glass { background: rgba(15,15,35,0.9); backdrop-filter: blur(20px); border: 1px solid rgba(0,240,255,0.15); }
+        .card-hover { transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .card-hover:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 30px 60px -15px rgb(0 240 255 / 0.3); }
     </style>
 </head>
-<body class="bg-black text-white overflow-x-hidden">
+<body class="bg-black text-white">
 
-    <!-- PRELOADER -->
-    <div id="preloader" class="fixed inset-0 bg-black z-[9999] flex items-center justify-center flex-col">
-        <div class="w-20 h-20 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 rounded-3xl flex items-center justify-center mb-8">
-            <span class="text-5xl font-black">GMS</span>
-        </div>
-        <p class="text-cyan-400 tracking-widest">LOADING...</p>
-    </div>
-
-    <!-- NAVBAR -->
+    <!-- Navbar -->
     <nav class="sticky top-0 z-50 glass border-b border-white/10">
-        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-11 h-11 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
-                    <span class="text-2xl font-black">GMS</span>
-                </div>
-                <span class="font-bold text-2xl">GMS NETWORK</span>
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl flex items-center justify-center text-3xl font-black">GMS</div>
+                <div class="text-2xl font-bold tracking-tighter">GMS NETWORK</div>
             </div>
-            <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="bg-white text-black px-6 py-3 rounded-3xl font-semibold flex items-center gap-2">
-                <i class="fa-brands fa-telegram"></i> JOIN CHANNEL
+            <a href="https://t.me/+1NRRqUd1replNTM1" target="_blank" class="bg-white text-black px-8 py-3.5 rounded-3xl font-semibold flex items-center gap-3 hover:scale-105 transition">
+                <i class="fa-brands fa-telegram text-xl"></i> JOIN MAIN CHANNEL
             </a>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section id="home" class="starry-bg min-h-screen flex items-center relative">
-        <div class="max-w-screen-2xl mx-auto px-8 py-20">
-            <h1 class="text-7xl md:text-8xl font-black heading-font leading-none mb-6">
-                THE MOST<br><span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">TRUSTED</span><br>TELEGRAM NETWORK
+    <!-- Hero -->
+    <section class="min-h-screen bg-gradient-to-br from-black via-zinc-950 to-black flex items-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 py-24 text-center">
+            <h1 class="text-7xl md:text-8xl font-black heading tracking-tighter leading-none mb-6">
+                GMS NETWORK<br>
+                <span class="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">TRUSTED SINCE 2026</span>
             </h1>
-            <p class="text-2xl text-white/70 max-w-lg">200+ Members • 9 Giveaways • 1000+ Accounts Sold</p>
+            <p class="text-2xl text-white/70 max-w-2xl mx-auto">200+ Members • 9 Giveaways • 1000+ Accounts Sold</p>
         </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="max-w-screen-2xl mx-auto px-8 py-24">
-        <div class="text-center mb-16">
-            <h2 class="text-6xl font-bold heading-font tracking-tighter">Premium Services</h2>
-        </div>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Bots Card -->
-            <div onclick="showBotsModal()" class="service-card glass border border-white/10 rounded-3xl p-8 cursor-pointer">
-                <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-robot text-4xl text-black"></i>
-                </div>
-                <h3 class="text-3xl font-bold mb-2">Custom Telegram Bots</h3>
-                <p class="text-white/70 mb-6">Professional bots for automation.</p>
-                <div class="text-cyan-400 font-medium">9 BOTS DEPLOYED →</div>
-            </div>
-
-            <!-- Other Cards -->
-            <div class="service-card glass border border-white/10 rounded-3xl p-8">
-                <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-gift text-4xl text-black"></i>
-                </div>
-                <h3 class="text-3xl font-bold mb-2">Epic Giveaways</h3>
-                <p class="text-white/70">Fair &amp; transparent giveaways.</p>
-                <div class="text-yellow-400 font-medium mt-6">9 GIVEAWAYS DONE</div>
-            </div>
-
-            <div class="service-card glass border border-white/10 rounded-3xl p-8">
-                <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-mobile-alt text-4xl text-black"></i>
-                </div>
-                <h3 class="text-3xl font-bold mb-2">Virtual Numbers</h3>
-                <p class="text-white/70">Instant Telegram verification.</p>
-                <div class="text-purple-400 font-medium mt-6">1000+ ACCOUNTS SOLD</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BOTS MODAL -->
-    <div id="botsModal" class="fixed inset-0 bg-black/95 hidden flex items-center justify-center z-[9999] p-4">
-        <div class="glass modal rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden">
-            <div class="p-6 border-b border-white/10 flex items-center justify-between">
-                <h2 class="text-3xl font-bold flex items-center gap-3">
-                    <i class="fa-solid fa-robot text-cyan-400"></i> All Bots (9)
-                </h2>
-                <button onclick="hideBotsModal()" class="text-4xl leading-none text-white/60 hover:text-white">×</button>
-            </div>
+    <!-- Services + Bots Section -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-2 gap-10">
             
-            <div class="p-6 space-y-3 overflow-auto max-h-[70vh]">
-                <a href="https://t.me/RADHA_MUSIC_GMS_op_bot" target="_blank" class="block p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all flex justify-between items-center group">
-                    <span class="text-lg">1. ˹ 𝐑ᴀᴅʜᴀ ꭙ 𝐌ᴜꜱɪᴄ ♪˼ [No Ads]</span>
-                    <span class="text-cyan-400 group-hover:translate-x-1 transition">→</span>
-                </a>
-                <a href="https://t.me/MADARA_GMS_STRING_bot" target="_blank" class="block p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all flex justify-between items-center group">
-                    <span class="text-lg">2. MADARA X STRING</span>
-                    <span class="text-cyan-400 group-hover:translate-x-1 transition">→</span>
-                </a>
-                <a href="https://t.me/MADARA_SPAM_6_bot" target="_blank" class="block p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all flex justify-between items-center group">
-                    <span class="text-lg">3. MADARA X SPAM #6</span>
-                    <span class="text-cyan-400 group-hover:translate-x-1 transition">→</span>
-                </a>
-                <a href="https://t.me/MADARA_SPAM_1_bot" target="_blank" class="block p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all flex justify-between items-center group">
-                    <span class="text-lg">4. MADARA X SPAM #1</span>
-                    <span class="text-cyan-400 group-hover:translate-x-1 transition">→</span>
-                </a>
-                <a href="https://t.me/MADARA_SPAM_2_bot" target="_blank" class="block p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all flex justify-between items-center group">
-                    <span class="text-lg">5. MADARA X SPAM #2</span>
-                    <span class="text-cyan-400 group-hover:translate-x-1 transition">→</span>
-                </a>
-                <a href="https://t.me/MADARA_SPAM_3_bot" target="_blank" class="block p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all flex justify-between items-center group">
-                    <span class="text-lg">6. MADARA X SPAM #3</span>
-                    <span class="text-cyan-400 group-hover:translate-x-1 transition">→</span>
-                </a>
-                <a href="https://t.me/MADARA_SPAM_4_bot" target="_blank" class="block p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all flex justify-between items-center group">
-                    <span class="text-lg">7. MADARA X SPAM #4</span>
-                    <span class="text-cyan-400 group-hover:translate-x-1 transition">→</span>
-                </a>
-                <a href="https://t.me/IMAGE_TO_BACKREMOVE_bot" target="_blank" class="block p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all flex justify-between items-center group">
-                    <span class="text-lg">8. 𝐈ᴍᴀɢᴇ ꭙ 𝐓ᴏᴏʟ</span>
-                    <span class="text-cyan-400 group-hover:translate-x-1 transition">→</span>
-                </a>
-                <a href="https://t.me/HINATA_GROUP_CHAT_bot" target="_blank" class="block p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all flex justify-between items-center group">
-                    <span class="text-lg">9. ˹ 𝐇ɪɴᴀᴛᴀ ꭙ 𝐈ɴғɪɴɪᴛʏ ˼</span>
-                    <span class="text-cyan-400 group-hover:translate-x-1 transition">→</span>
-                </a>
+            <!-- Left: Services -->
+            <div>
+                <h2 class="text-5xl font-bold heading mb-10">Our Services</h2>
+                <div class="space-y-6">
+                    <div class="glass rounded-3xl p-8 card-hover">
+                        <h3 class="text-3xl font-bold mb-2">Epic Giveaways</h3>
+                        <p class="text-white/70">9 Successful Giveaways</p>
+                    </div>
+                    <div class="glass rounded-3xl p-8 card-hover">
+                        <h3 class="text-3xl font-bold mb-2">Virtual Numbers</h3>
+                        <p class="text-white/70">1000+ Accounts Sold</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: All Bots -->
+            <div>
+                <h2 class="text-5xl font-bold heading mb-8 flex items-center gap-4">
+                    <i class="fa-solid fa-robot text-cyan-400"></i> Our 9 Bots
+                </h2>
+                
+                <div class="grid gap-4">
+                    <a href="https://t.me/RADHA_MUSIC_GMS_op_bot" target="_blank" class="glass rounded-3xl p-5 flex items-center justify-between hover:bg-cyan-500/10 group">
+                        <span class="text-lg">1. ˹ 𝐑ᴀᴅʜᴀ ꭙ 𝐌ᴜꜱɪᴄ ♪˼ [No Ads]</span>
+                        <span class="text-cyan-400 group-hover:translate-x-2 transition">→</span>
+                    </a>
+                    <a href="https://t.me/MADARA_GMS_STRING_bot" target="_blank" class="glass rounded-3xl p-5 flex items-center justify-between hover:bg-cyan-500/10 group">
+                        <span class="text-lg">2. MADARA X STRING</span>
+                        <span class="text-cyan-400 group-hover:translate-x-2 transition">→</span>
+                    </a>
+                    <a href="https://t.me/MADARA_SPAM_6_bot" target="_blank" class="glass rounded-3xl p-5 flex items-center justify-between hover:bg-cyan-500/10 group">
+                        <span class="text-lg">3. MADARA X SPAM #6</span>
+                        <span class="text-cyan-400 group-hover:translate-x-2 transition">→</span>
+                    </a>
+                    <a href="https://t.me/MADARA_SPAM_1_bot" target="_blank" class="glass rounded-3xl p-5 flex items-center justify-between hover:bg-cyan-500/10 group">
+                        <span class="text-lg">4. MADARA X SPAM #1</span>
+                        <span class="text-cyan-400 group-hover:translate-x-2 transition">→</span>
+                    </a>
+                    <a href="https://t.me/MADARA_SPAM_2_bot" target="_blank" class="glass rounded-3xl p-5 flex items-center justify-between hover:bg-cyan-500/10 group">
+                        <span class="text-lg">5. MADARA X SPAM #2</span>
+                        <span class="text-cyan-400 group-hover:translate-x-2 transition">→</span>
+                    </a>
+                    <a href="https://t.me/MADARA_SPAM_3_bot" target="_blank" class="glass rounded-3xl p-5 flex items-center justify-between hover:bg-cyan-500/10 group">
+                        <span class="text-lg">6. MADARA X SPAM #3</span>
+                        <span class="text-cyan-400 group-hover:translate-x-2 transition">→</span>
+                    </a>
+                    <a href="https://t.me/MADARA_SPAM_4_bot" target="_blank" class="glass rounded-3xl p-5 flex items-center justify-between hover:bg-cyan-500/10 group">
+                        <span class="text-lg">7. MADARA X SPAM #4</span>
+                        <span class="text-cyan-400 group-hover:translate-x-2 transition">→</span>
+                    </a>
+                    <a href="https://t.me/IMAGE_TO_BACKREMOVE_bot" target="_blank" class="glass rounded-3xl p-5 flex items-center justify-between hover:bg-cyan-500/10 group">
+                        <span class="text-lg">8. 𝐈ᴍᴀɢᴇ ꭙ 𝐓ᴏᴏʟ</span>
+                        <span class="text-cyan-400 group-hover:translate-x-2 transition">→</span>
+                    </a>
+                    <a href="https://t.me/HINATA_GROUP_CHAT_bot" target="_blank" class="glass rounded-3xl p-5 flex items-center justify-between hover:bg-cyan-500/10 group">
+                        <span class="text-lg">9. ˹ 𝐇ɪɴᴀᴛᴀ ꭙ 𝐈ɴғɪɴɪᴛʏ ˼</span>
+                        <span class="text-cyan-400 group-hover:translate-x-2 transition">→</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        function showBotsModal() {
-            document.getElementById('botsModal').classList.remove('hidden');
-            document.getElementById('botsModal').classList.add('flex');
-        }
-        
-        function hideBotsModal() {
-            document.getElementById('botsModal').classList.add('hidden');
-            document.getElementById('botsModal').classList.remove('flex');
-        }
-        
-        // Preloader
-        window.onload = () => {
-            setTimeout(() => {
-                document.getElementById('preloader').style.opacity = '0';
-                setTimeout(() => document.getElementById('preloader').style.display = 'none', 800);
-            }, 1200);
-        };
-    </script>
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-12 text-center text-white/50">
+        <p>GMS Network © 2026 • Main Channel: <a href="https://t.me/+1NRRqUd1replNTM1" class="text-cyan-400">t.me/+1NRRqUd1replNTM1</a></p>
+    </footer>
+
 </body>
 </html>
